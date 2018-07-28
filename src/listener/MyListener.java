@@ -5,8 +5,14 @@ import javax.jms.Message;
 import javax.jms.MessageListener;
 import javax.jms.TextMessage;
 
-public class MyListener implements MessageListener {
+import org.springframework.stereotype.Component;
 
+@Component
+public class MyListener implements MessageListener {
+	public MyListener() {
+		// TODO Auto-generated constructor stub
+		System.out.println("my listn...");
+	}
 	public void onMessage(Message arg0){
 		TextMessage msg=(TextMessage)arg0;
 		try {
@@ -14,7 +20,5 @@ public class MyListener implements MessageListener {
 		} catch (JMSException e) {
 			e.printStackTrace();
 		}
-
 	}
-
 }
